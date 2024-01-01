@@ -11,8 +11,7 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install
-      - run: npm run build
-      
+      - run: npm run build      
   test: 
     needs: build
     runs-on: ubuntu-latest
@@ -25,8 +24,7 @@ jobs:
           node-version: '18.x'
       - run: npm install
       - run: npm test
-
-      deploy:
+  deploy:
     needs: test
 
     permissions:
@@ -67,5 +65,6 @@ jobs:
       - name: deploy
         id: deployment
         uses: actions/deploy-pages@v1
+     
     
        
